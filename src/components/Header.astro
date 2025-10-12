@@ -34,6 +34,25 @@
     right: 1rem;
     color: #d1d5db;
   }
+
+  /* Mobile menu animation */
+  #mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  #mobile-menu.open {
+    max-height: 500px;
+  }
+
+  /* Icon positioning */
+  #mobile-menu-button svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 </style>
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
@@ -87,17 +106,20 @@
       <!-- Mobile Menu Button -->
       <button
         id="mobile-menu-button"
-        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+        class="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors relative z-50"
         aria-label="Toggle menu"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg id="burger-icon" class="w-6 h-6 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
 
     <!-- Mobile Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden pb-4">
+    <div id="mobile-menu" class="md:hidden pb-4">
       <div class="flex flex-col space-y-3">
         <a href="#cost" class="text-gray-700 hover:text-blue-500 transition-colors font-medium py-2">
           Cost
@@ -149,16 +171,32 @@
   // Mobile menu toggle
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const burgerIcon = document.getElementById('burger-icon');
+  const closeIcon = document.getElementById('close-icon');
 
   mobileMenuButton?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+    const isOpen = mobileMenu?.classList.contains('open');
+
+    if (isOpen) {
+      // Close menu
+      mobileMenu?.classList.remove('open');
+      burgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
+    } else {
+      // Open menu
+      mobileMenu?.classList.add('open');
+      burgerIcon?.classList.add('hidden');
+      closeIcon?.classList.remove('hidden');
+    }
   });
 
   // Close mobile menu when clicking on a link
   const mobileLinks = mobileMenu?.querySelectorAll('a');
   mobileLinks?.forEach(link => {
     link.addEventListener('click', () => {
-      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('open');
+      burgerIcon?.classList.remove('hidden');
+      closeIcon?.classList.add('hidden');
     });
   });
 </script>
