@@ -1,0 +1,102 @@
+---
+// Hero section with headline, subtext, CTA, and image
+---
+
+<section class="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50" id="hero">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <!-- Text Content -->
+      <div class="text-center lg:text-left animate-fade-in">
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+          New Smile in
+          <span class="text-blue-500 block">Just One Day</span>
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+          Dr. Jonson, Founder of DENTAL SMILE – 3000+ Full-Arch Cases Completed in California
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a
+            href="#cost"
+            class="inline-flex items-center justify-center bg-blue-500 text-white px-8 py-4 rounded-full text-xl font-semibold hover:bg-blue-600 transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
+            Calculate Your Cost
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+          <a
+            href="#contacts"
+            class="inline-flex items-center justify-center border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full text-xl font-semibold hover:border-blue-500 hover:text-blue-500 transition-all duration-300"
+          >
+            Free Consultation
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-3 gap-6 mt-12 pt-12 border-t border-gray-200">
+          <div>
+            <div class="text-3xl sm:text-4xl font-bold text-blue-500">3000+</div>
+            <div class="text-sm text-gray-600 mt-1">Full-Arch Cases</div>
+          </div>
+          <div>
+            <div class="text-3xl sm:text-4xl font-bold text-blue-500">98%</div>
+            <div class="text-sm text-gray-600 mt-1">Success Rate</div>
+          </div>
+          <div>
+            <div class="text-3xl sm:text-4xl font-bold text-blue-500">1-Day</div>
+            <div class="text-sm text-gray-600 mt-1">Treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative animate-slide-in">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="/images/hero/Gemini_Generated_Image_2syrh42syrh42syr.png"
+            alt="Dr. Jonson - Dental Smile Founder"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+        <!-- Decorative elements -->
+        <div class="absolute -top-6 -right-6 w-24 h-24 bg-blue-500 rounded-full opacity-20 blur-2xl"></div>
+        <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-blue-300 rounded-full opacity-20 blur-2xl"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out 0.2s backwards;
+  }
+</style>

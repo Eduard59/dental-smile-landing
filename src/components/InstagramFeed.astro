@@ -1,0 +1,161 @@
+---
+// Instagram Feed section
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+        Follow Our Journey
+      </h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        See daily smile transformations and patient stories on Instagram
+      </p>
+    </div>
+
+    <!-- Instagram Reels Grid - Row 1 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <!-- Instagram Reel 1 -->
+      <div class="instagram-video-wrapper" data-row="1">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPO94lcjFlK/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 2 -->
+      <div class="instagram-video-wrapper" data-row="1">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPotzeEDLnZ/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 3 -->
+      <div class="instagram-video-wrapper" data-row="1">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPg_avfle4B/" data-instgrm-version="14"></blockquote>
+      </div>
+    </div>
+
+    <!-- Instagram Reels Grid - Row 2 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+      <!-- Instagram Reel 4 -->
+      <div class="instagram-video-wrapper" data-row="2">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPcsvrfEVgX/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 5 -->
+      <div class="instagram-video-wrapper" data-row="2">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPUN7aIAXZm/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 6 -->
+      <div class="instagram-video-wrapper" data-row="2">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPRbyt3gnbF/" data-instgrm-version="14"></blockquote>
+      </div>
+    </div>
+
+    <!-- Instagram Reels Grid - Row 3 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Instagram Reel 7 -->
+      <div class="instagram-video-wrapper" data-row="3">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPO94lcjFlK/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 8 -->
+      <div class="instagram-video-wrapper" data-row="3">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPotzeEDLnZ/" data-instgrm-version="14"></blockquote>
+      </div>
+
+      <!-- Instagram Reel 9 -->
+      <div class="instagram-video-wrapper" data-row="3">
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPg_avfle4B/" data-instgrm-version="14"></blockquote>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .instagram-video-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 630px;
+    width: 100%;
+  }
+
+  .instagram-video-wrapper * {
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  @media (max-width: 768px) {
+    .instagram-video-wrapper {
+      height: 400px;
+    }
+  }
+</style>
+
+<script async src="//www.instagram.com/embed.js"></script>
+
+<script>
+  // Обрезаем Instagram embed как только iframe появляется
+  document.addEventListener('DOMContentLoaded', () => {
+    const wrappers = document.querySelectorAll('.instagram-video-wrapper');
+
+    wrappers.forEach(wrapper => {
+      const observer = new MutationObserver(() => {
+        const iframe = wrapper.querySelector('iframe');
+        const blockquote = wrapper.querySelector('.instagram-media');
+
+        // Получаем номер ряда из data-атрибута
+        const row = wrapper.dataset.row;
+
+        // Настройки для первого ряда (уже настроены)
+        let topOffset = '-30px';
+        let leftOffset = '50%';
+        let transformX = '-50%';
+
+        // Для второго ряда сдвигаем вправо на 205px
+        if (row === '2') {
+          topOffset = '-30px';
+          leftOffset = 'calc(50% + 205px)';
+          transformX = 'calc(-50% + 205px)';
+        }
+
+        // Для третьего ряда сдвигаем вправо на 205px (как второй ряд)
+        if (row === '3') {
+          topOffset = '-30px';
+          leftOffset = 'calc(50% + 205px)';
+          transformX = 'calc(-50% + 205px)';
+        }
+
+        if (iframe) {
+          iframe.style.position = 'relative';
+          iframe.style.top = topOffset;
+          iframe.style.left = leftOffset;
+          iframe.style.transform = `translateX(${transformX}) scale(1.42)`;
+          iframe.style.height = '650px';
+          iframe.style.width = '100%';
+          iframe.style.border = 'none';
+
+          // Останавливаем наблюдение после применения стилей
+          observer.disconnect();
+        }
+
+        if (blockquote) {
+          blockquote.style.position = 'relative';
+          blockquote.style.top = topOffset;
+          blockquote.style.width = '100%';
+          blockquote.style.border = 'none';
+          blockquote.style.boxShadow = 'none';
+          blockquote.style.margin = '0';
+        }
+      });
+
+      // Наблюдаем за изменениями в wrapper
+      observer.observe(wrapper, {
+        childList: true,
+        subtree: true
+      });
+    });
+  });
+</script>

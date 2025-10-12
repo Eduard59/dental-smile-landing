@@ -1,0 +1,75 @@
+---
+// Sticky mobile CTA buttons
+---
+
+<div class="mobile-cta-buttons">
+  <a href="#calculator" class="mobile-btn mobile-btn-primary">
+    Calculate Your Cost
+  </a>
+  <a href="#contacts" class="mobile-btn mobile-btn-secondary">
+    Free Consultation
+  </a>
+</div>
+
+<style>
+  .mobile-cta-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    gap: 12px;
+    padding: 12px 16px;
+    background: white;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .mobile-btn {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-btn-primary {
+    background: #3197ff;
+    color: white;
+    border: 2px solid #3197ff;
+  }
+
+  .mobile-btn-primary:active {
+    background: #2880e0;
+    transform: scale(0.98);
+  }
+
+  .mobile-btn-secondary {
+    background: white;
+    color: #E07B47;
+    border: 2px solid #E07B47;
+  }
+
+  .mobile-btn-secondary:active {
+    background: #fef3ec;
+    transform: scale(0.98);
+  }
+
+  /* Hide on desktop */
+  @media (min-width: 768px) {
+    .mobile-cta-buttons {
+      display: none;
+    }
+  }
+
+  /* Add bottom padding to body to prevent content overlap */
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: 80px;
+    }
+  }
+</style>
