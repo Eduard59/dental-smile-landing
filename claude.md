@@ -45,6 +45,11 @@ A modern, responsive landing page for a dental implant service featuring:
 - **Fonts**: Inter (Google Fonts)
 - **Icons**: Inline SVG
 - **JavaScript**: Vanilla JS for interactivity
+- **External Integrations**:
+  - YouTube (video embed)
+  - Instagram (Reels embed)
+  - DentalPrice.ai (calculator widget)
+  - Google Maps (directions)
 
 ---
 
@@ -60,12 +65,14 @@ Layout.astro (Wrapper)
     │   ├── Hero.astro
     │   ├── PhotoGallery.astro (Infinite Scroll)
     │   ├── PricingPackages.astro (4 Cards)
-    │   ├── Features.astro (6 Expandable Cards)
+    │   ├── Features.astro (6 Expandable Cards - Payment Flexibility)
+    │   ├── Insurance.astro (3 Expandable Cards - PPO/HMO/Medicare)
     │   ├── BeforeAfter.astro (Carousel)
-    │   ├── Testimonials.astro (6 Reviews)
-    │   ├── AdditionalBenefits.astro
-    │   ├── InstagramFeed.astro (Custom Reels)
-    │   └── CTA.astro
+    │   ├── Testimonials.astro (5 Reviews with Read More/Less)
+    │   ├── AdditionalBenefits.astro (Doctor Section + YouTube Video)
+    │   ├── FAQ.astro (8 Expandable Questions)
+    │   ├── InstagramFeed.astro (3 Rows, 9 Custom Reels)
+    │   └── CTA.astro (Expandable Free Consultation Card)
     ├── Footer.astro
     └── MobileButtons.astro (Sticky Bottom)
 ```
@@ -110,15 +117,30 @@ Layout.astro (Wrapper)
 **Purpose**: Sticky navigation bar with blur effect on scroll
 
 **Features**:
-- **Desktop Navigation**: 7 links + phone CTA
-- **Mobile Navigation**: Hamburger menu with collapsible links
+- **Desktop Navigation**: 7 links + phone CTA button
+- **Mobile Navigation**: Animated burger ↔ X icon with slide-down menu
 - **Scroll Effect**: Background blur and transparency after 20px scroll
 - **Logo**: Dynamic height (40px mobile, 50px desktop)
 
-**Navigation Links**:
+**Navigation Links** (updated):
 ```
-Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
+Cost | Financing | Insurance | Doctor | Reviews | FAQ | Contacts
 ```
+- Cost → `#cost`
+- Financing → `#features` (Payment Flexibility Options)
+- **Insurance** → `#insurance` (new!)
+- Doctor → `#doctor`
+- Reviews → `#testimonials`
+- FAQ → `#faq`
+- Contacts → `#contact` (Footer)
+
+**Phone Number**: **(916) 282-2423** (updated)
+
+**Mobile Menu**:
+- White background with shadow
+- Burger/X icon animation
+- Smooth slide animation (`max-height` transition)
+- Auto-closes on link click
 
 **Sticky Behavior**:
 - `position: fixed` + `z-index: 50`
@@ -129,8 +151,8 @@ Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
 
 **Customization**:
 - **Logo**: Replace `/images/logos/logo_1.png`
-- **Phone**: Update `href="tel:+19162820000"` and text
-- **Links**: Modify `<a>` tags in desktop/mobile menus
+- **Phone**: Lines 101, 151 (`href="tel:+19162822423"`)
+- **Links**: Modify navigation arrays (desktop: 78-99, mobile: 129-149)
 
 ---
 
@@ -193,20 +215,33 @@ Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
 
 ### 5. PricingPackages.astro
 
-**Purpose**: 4 pricing cards for different dental treatments
+**Purpose**: 4 pricing cards for different dental treatments with calculator integration
 
 **Cards**:
 1. **Single Implant (or Multiple)**
+   - Calculator: `package=single-implant`
+
 2. **Snap-in Removable Denture**
+   - Calculator: `package=snap-in-denture`
+
 3. **All-on-4/6/8 Implants** (Featured: "Best Value" badge)
+   - Calculator: `package=all-on-468-per-arch`
+
 4. **Permanent Zirconia Teeth**
+   - Calculator: `package=zirconia-teeth`
+
+**Calculator Integration**:
+- Widget URL: `https://widget.dentalprice.ai/amazcloverr/widget`
+- Public Key: `WGT_B8059FA5381A`
+- Auto-start enabled
+- Opens in new tab
 
 **Card Structure**:
 - Image (260px height)
 - Title
 - Subtitle (blue text)
 - 3 checkmark features
-- Primary CTA button (blue)
+- **"Calculate My Cost" button** → Opens calculator widget
 - Benefits text (small print)
 
 **Hover Effects**:
@@ -217,9 +252,9 @@ Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
 **Location**: `/src/components/PricingPackages.astro`
 
 **Customization**:
-- Images: `/images/pricing/*.png` (lines 22, 57, 93, 128)
-- Add `.featured` class to change featured card
-- Modify features lists (lines 27-45 per card)
+- Images: `/images/pricing/*.png`
+- Calculator URLs: Lines 47, 82, 118, 153
+- Modify features lists per card
 
 ---
 
@@ -298,63 +333,156 @@ Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
 
 ### 8. Testimonials.astro
 
-**Purpose**: Grid of 6 patient reviews (Google & Yelp)
+**Purpose**: Grid of 5 real patient reviews with expandable text
 
-**Review Sources**:
-- 5× Google Reviews (with Google logo SVG)
-- 1× Yelp Review (with Yelp logo image)
+**Reviews** (all 5 stars):
+1. **Austin C.** (Google, 2 months ago) - Major surgery, family atmosphere
+2. **Nellie G.** (Google, 1 month ago) - 100/10! Wisdom teeth extraction
+3. **Aarica J.** (Yelp, 2 weeks ago) - Last minute extraction
+4. **Michael L.** (Google, 1 month ago) - Major oral surgery
+5. **Stefaniia K.** (Google, 1 month ago) - Excellent experience
+
+**Features**:
+- **Read More/Less**: Long reviews collapsed by default
+- **Platforms**: Google (4) + Yelp (1) with logos
+- **All 5 stars**: Only positive reviews shown
 
 **Review Structure**:
 - Platform logo + 5-star rating
-- Review text (italicized quote)
+- Preview text + hidden full text
+- "read more" button (toggles to "read less")
 - Avatar circle (initials)
-- Name + source
+- Name + timestamp
 
 **Grid Layout**:
 - Mobile: 1 column
 - Tablet: 2 columns
 - Desktop: 3 columns
 
+**JavaScript**:
+- Click button → shows/hides full text
+- `display: inline` for seamless text flow
+
 **Location**: `/src/components/Testimonials.astro`
 
 **Customization**:
-- Add reviews: Copy card structure (lines 19-60)
+- Add reviews: Copy card structure
+- Edit text split: Modify preview and `.review-full` span
 - Change ratings: Modify SVG star count
-- Update avatars: Change initials in `.w-12.h-12` div
 
 ---
 
-### 9. AdditionalBenefits.astro
+### 9. AdditionalBenefits.astro (Doctor Section)
 
-**Purpose**: Simple 2-column benefits section
+**Purpose**: Showcase Dr. Antipov with video and expandable credentials
 
-**Layout**:
-- Left: Text content with 4 checkmark bullets
-- Right: Decorative icon background (blue gradient)
+**Layout**: 2-column grid
+- **Left**: YouTube video embed (500px height)
+- **Right**: 4 expandable info cards
 
-**Benefits**:
-1. Easy integration with existing tools
-2. Automated workflows to save time
-3. Regular updates with new features
-4. Dedicated support team
+**Cards**:
+1. **16+ Years Experience in California**
+2. **On-Site Lab – 365 Dental Lab**
+3. **3000+ Full-Arch Restorations** (Fusion Dental Academy founder)
+4. **Over 45,000 Implants Placed** (with statistics grid)
+
+**Video**:
+- YouTube embed: `https://youtu.be/y-mAGcATgKg`
+- Fullscreen enabled
+- Responsive iframe
+
+**Interaction**:
+- Click card → expands details
+- Others auto-collapse
+- Blue border when active
 
 **Location**: `/src/components/AdditionalBenefits.astro`
 
 **Customization**:
-- Edit benefits: Lines 17-40
-- Change gradient: Modify `from-blue-100 to-blue-200` (line 44)
+- Change video: Update `src` in iframe (line 23)
+- Edit card content: Modify `.card-expanded` sections
+- Add more cards: Copy card structure
 
 ---
 
-### 10. InstagramFeed.astro
+### 10. Insurance.astro
+
+**Purpose**: Explain insurance coverage options with expandable cards
+
+**Cards** (3 in row):
+
+1. **PPO Plan** (Preferred Provider Organization)
+   - **Border**: Thick green (`border-4 border-green-300`) - emphasized
+   - Coverage: 0-50%+ for implants
+   - Annual max: $1,000-$2,000
+   - Verification process explained
+
+2. **HMO & DHMO Plans** (Health Maintenance Organization)
+   - **Border**: Regular green (`border-2`)
+   - **Warning**: NOT accepted (orange banner)
+   - **Discount Program**: Special pricing on extractions, diagnostics, CT scan (green banner)
+   - Alternative payment options
+
+3. **Medicare/Medicaid** (Government coverage)
+   - **Border**: Regular green (`border-2`)
+   - **Warning**: Implants NOT covered (orange banner)
+   - **Discount Program**: Same discounts as HMO/DHMO (green banner)
+   - Self-pay required with financing options
+
+**Visual Hierarchy**:
+- Orange banners: Limitations/restrictions
+- Green banners: Positive alternatives (Special Discount Program)
+
+**Location**: `/src/components/Insurance.astro`
+
+**Customization**:
+- Add/remove cards: Copy card structure (lines 20-102)
+- Edit discount services: Modify green banner lists
+- Change border colors: Update `border-` classes
+
+---
+
+### 11. FAQ.astro
+
+**Purpose**: Answer common questions about dental implants and clinic
+
+**Questions** (8 expandable):
+1. Single implant cost → Redirects to calculator (no specific prices)
+2. Full mouth restoration cost → Redirects to calculator
+3. Payment plans (48/60/90 months, $0 down, 85%+ approval)
+4. Insurance coverage (PPO partial coverage)
+5. **Free consultation details** ($650 → $0, includes exam, CT scan, plan, quote)
+6. Implant process (4-step timeline)
+7. Same-day implants (Yes! with on-site lab)
+8. Upper & lower together (Yes!)
+9. Sedation options (Local, IV, General)
+10. Healing process (timeline)
+11. Materials (Titanium, Zirconia)
+12. Office hours (Mon-Fri 8-6, Sat 9-3)
+
+**Special Features**:
+- Questions 1 & 2: Blue CTA buttons to calculator
+- Question 5: Price comparison visual ($650 crossed → $0)
+- Bottom CTA: "Still have questions? Contact us"
+
+**Location**: `/src/components/FAQ.astro`
+
+**Customization**:
+- Add questions: Copy `.faq-item` structure
+- Update answers: Modify `.faq-answer` content
+- Change office hours: Line 245-251
+
+---
+
+### 12. InstagramFeed.astro
 
 **Purpose**: Display Instagram Reels with custom cropping and row positioning
 
 **Architecture**:
 - **3 Rows** of Instagram embeds (3 reels per row = 9 total)
-- **Row 1**: Centered (`50%`)
-- **Row 2**: Shifted right (`+205px`)
-- **Row 3**: Shifted right (`+205px`)
+- **Row 1**: Centered (marginLeft: 0px)
+- **Row 2**: Shifted right (marginLeft: 150px)
+- **Row 3**: Shifted right (marginLeft: 150px)
 
 **Key Parameters**:
 
@@ -364,12 +492,17 @@ Cost | Financing | About | Doctor | Reviews | FAQ | Contacts
 | iframe height | 650px | Actual embed height |
 | Scale | 1.42 | Zoom to crop UI |
 | Top offset | -30px | Vertical crop |
-| Row 2/3 shift | +205px | Horizontal offset |
+| Row 2/3 shift | +150px | Horizontal offset (via marginLeft) |
+
+**Stability Solution**:
+- Uses `setInterval(forceStyles, 2000)` to reapply styles every 2 seconds
+- Prevents Instagram from overriding custom positioning
+- CSS hides Instagram UI elements (header, captions, buttons)
 
 **Instagram URLs**:
 - Row 1: `DPO94lcjFlK`, `DPotzeEDLnZ`, `DPg_avfle4B`
 - Row 2: `DPcsvrfEVgX`, `DPUN7aIAXZm`, `DPRbyt3gnbF`
-- Row 3: Same as Row 1
+- Row 3: `DPCGPF3FW-b`, `DPEqqy9iTdc`, `DPpMzoPEh0F`
 
 **JavaScript Logic**:
 - `MutationObserver` detects iframe injection
@@ -396,52 +529,77 @@ if (row === '2') {
 
 ---
 
-### 11. CTA.astro
+### 13. CTA.astro (Free Consultation Card)
 
-**Purpose**: Final call-to-action section with gradient background
+**Purpose**: Highlight free consultation offer with expandable details
 
 **Features**:
-- Blue gradient background (`from-blue-500 to-blue-600`)
+- **Expandable white card** on blue gradient background
+- **Collapsed state**: $650 crossed → $0 comparison
+- **Expanded state**: Full consultation details
+
+**Includes**:
+- Price visual: ~~$650~~ → **$0** (large, prominent)
+- 4 services in 2x2 grid:
+  1. 1-on-1 Exam with Dr. Antipov
+  2. 3D CT Scan
+  3. Personalized Full-Arch Treatment Plan
+  4. Transparent, All-Inclusive Quote
+- Limited time banner: Save $650
 - 2 CTA buttons:
-  - "Start Free Trial" (white bg)
-  - "Schedule a Demo" (outlined)
-- Trust indicators: Free trial | No credit card | Cancel anytime
+  - "Call Now: (916) 282-2423"
+  - "Schedule Free Consultation"
+
+**Interaction**:
+- Click card → expands/collapses
+- Arrow rotates 180°
+- Enhanced shadow when active
 
 **Location**: `/src/components/CTA.astro`
 
 **Customization**:
-- Update headline (line 7-8)
-- Modify CTAs (lines 15-29)
-- Edit trust badges (lines 33-52)
+- Change price: Lines 26, 33, 45, 52
+- Edit services: Grid items (lines 62-112)
+- Update CTAs: Lines 121-135
 
 ---
 
-### 12. Footer.astro
+### 14. Footer.astro
 
-**Purpose**: Site footer with links, contact info, and scroll-to-top button
+**Purpose**: Site footer with links, contact info, office locations, and scroll-to-top button
 
-**Sections** (4 columns):
-1. **Company Info**: Logo, description, social media icons
-2. **Product Links**: Features, Pricing, Documentation, etc.
-3. **Company Links**: About, Blog, Careers, etc.
-4. **Support**: Help center, contact info (email + phone)
+**Sections** (3 columns):
+1. **Company Info**:
+   - Logo image (`/images/logos/logo_1.png`)
+   - Description
+   - Social media: Facebook, Twitter, Instagram, YouTube
+
+2. **Quick Links**:
+   - Cost | Financing | Insurance | Doctor | Reviews | FAQ | Contacts
+   - Matches header navigation
+
+3. **Contact Info**:
+   - Phone: **(916) 282-2423**
+   - Email: **info@dentalimplantsclub.com**
+   - **Roseville Office**: 911 Reserve Dr Ste 150, Roseville, CA + "Get Directions" button
+   - **El Dorado Hills Office**: 4913 Golden Foothill Pkwy, El Dorado Hills, CA 95762 + "Get Directions" button
+
+**Get Directions Buttons**:
+- Google Maps integration with `maps/dir/?api=1&destination=`
+- Opens navigation from user's location
+- Blue color, icon with arrow
 
 **Additional Features**:
-- **Bottom Bar**: Copyright + legal links
+- **Bottom Bar**: Copyright "© 2025 Dental Implants Club"
 - **Scroll-to-Top Button**: Appears after 500px scroll
 
 **Location**: `/src/components/Footer.astro`
 
 **Customization**:
-- Brand name: Lines 10, 124
-- Social links: Lines 15-34
-- Email/phone: Lines 104, 112
-- Add columns: Follow grid structure
-
-**Scroll-to-Top**:
-- Shows: `window.scrollY > 500`
-- Fixed position: `bottom-8 right-8`
-- Z-index: 40
+- Logo: Line 10-13
+- Social links: Lines 18-38 (Instagram/YouTube URLs updated)
+- Addresses: Lines 95-125
+- Update Get Directions URLs: Lines 101, 123
 
 ---
 
@@ -728,26 +886,31 @@ landing-page/
 │
 ├── src/
 │   ├── components/
-│   │   ├── Header.astro
+│   │   ├── Header.astro (Updated: navigation, phone, mobile menu)
 │   │   ├── Hero.astro
 │   │   ├── PhotoGallery.astro
-│   │   ├── PricingPackages.astro
+│   │   ├── PricingPackages.astro (Updated: calculator links)
 │   │   ├── Features.astro
+│   │   ├── Insurance.astro (NEW: PPO/HMO/Medicare cards)
 │   │   ├── BeforeAfter.astro
-│   │   ├── Testimonials.astro
-│   │   ├── AdditionalBenefits.astro
-│   │   ├── InstagramFeed.astro
-│   │   ├── CTA.astro
-│   │   ├── Footer.astro
+│   │   ├── Testimonials.astro (Updated: 5 new reviews, read more/less)
+│   │   ├── AdditionalBenefits.astro (Updated: Doctor section + YouTube)
+│   │   ├── FAQ.astro (NEW: 8 expandable questions)
+│   │   ├── InstagramFeed.astro (Updated: 3 rows, 9 videos, stable positioning)
+│   │   ├── CTA.astro (Updated: expandable consultation card)
+│   │   ├── Footer.astro (Updated: contacts, addresses, Get Directions)
 │   │   ├── MobileButtons.astro
 │   │   ├── Pricing.astro (unused alternative)
 │   │   └── ...
+│   │
+│   ├── config/
+│   │   └── instagram.config.ts (NEW: Instagram settings - not currently used)
 │   │
 │   ├── layouts/
 │   │   └── Layout.astro
 │   │
 │   ├── pages/
-│   │   └── index.astro
+│   │   └── index.astro (Updated: new components added)
 │   │
 │   └── styles/
 │       └── global.css
@@ -915,6 +1078,16 @@ npm update
 ---
 
 ## Version History
+
+### v2.0 (2025-10-13)
+- **New Components**: FAQ, Insurance, Doctor section with video
+- **Updated Components**: Testimonials (5 real reviews with read more/less), CTA (expandable card), InstagramFeed (3 rows, stable positioning)
+- **Calculator Integration**: All pricing cards linked to DentalPrice.ai widget
+- **Contact Info**: Updated phone (916) 282-2423, email, 2 office addresses
+- **Navigation**: Added Insurance to menu, updated all anchor links
+- **Footer**: Logo, Get Directions buttons, social media links
+- **Mobile**: Improved burger menu with white background
+- **Total**: 15 components + 1 config file
 
 ### v1.0 (2025-10-11)
 - Initial documentation
