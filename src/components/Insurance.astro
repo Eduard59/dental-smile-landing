@@ -1,0 +1,344 @@
+---
+// Insurance section with expandable cards
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" id="insurance">
+  <div class="max-w-7xl mx-auto">
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+        Insurance Coverage Options
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        We work with most major insurance providers to maximize your benefits and make dental implants affordable
+      </p>
+    </div>
+
+    <!-- Insurance Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <!-- Card 1: PPO Plan -->
+      <div class="insurance-card bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-4 border-green-300" data-card="ppo">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+            </svg>
+          </div>
+          <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">PPO Plan</h3>
+        <p class="text-gray-600 mb-4">Preferred Provider Organization dental insurance</p>
+        <p class="text-sm text-blue-500 font-semibold">Tap to learn more</p>
+
+        <div class="card-expanded" style="display: none;">
+          <hr class="my-6 border-gray-200" />
+          <p class="text-gray-700 leading-relaxed mb-4">
+            The clinic accepts most PPO plans, but coverage varies significantly.
+          </p>
+
+          <h4 class="font-bold text-gray-900 mb-3">What You Need to Know:</h4>
+
+          <div class="space-y-4 mb-6">
+            <div>
+              <p class="font-semibold text-gray-900 mb-2">Coverage Varies by Plan:</p>
+              <ul class="space-y-2 ml-4">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Coverage percentage differs (0-50%+ for implants)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Annual maximum limits apply (typically $1,000-$2,000/year)</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Deductibles and waiting periods may apply</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-semibold text-gray-900 mb-2">Verification Required:</p>
+              <ul class="space-y-2 ml-4">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Check your remaining annual maximum</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Confirm coverage percentage for implants specifically</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Ask about pre-authorization requirements</span>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <p class="font-semibold text-gray-900 mb-2">How to Verify:</p>
+              <ul class="space-y-2 ml-4">
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Clinic can verify benefits during consultation</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-blue-500 mr-2">•</span>
+                  <span class="text-sm text-gray-700">Contact your insurance directly for exact coverage details</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-700">
+              <strong>Important:</strong> Even with PPO insurance, you'll likely pay a significant portion out-of-pocket. The balance can be covered through financing options or cash discounts.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: HMO & DHMO -->
+      <div class="insurance-card bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 border-green-200" data-card="hmo">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">HMO & DHMO Plans</h3>
+        <p class="text-gray-600 mb-4">Health Maintenance Organization</p>
+        <p class="text-sm text-blue-500 font-semibold">Tap to learn more</p>
+
+        <div class="card-expanded" style="display: none;">
+          <hr class="my-6 border-gray-200" />
+
+          <div class="bg-orange-50 p-4 rounded-lg mb-6 border-l-4 border-orange-500">
+            <p class="text-orange-700 font-bold">⚠️ These plans are NOT accepted at our clinic</p>
+          </div>
+
+          <div class="bg-green-50 p-4 rounded-lg mb-6 border-l-4 border-green-500">
+            <p class="text-green-700 font-bold mb-2">🎁 Our Special Discount Program:</p>
+            <p class="text-green-600 text-sm">
+              Even though we can't accept HMO/DHMO plans, we offer special discounts on related services for patients getting implants at our clinic
+            </p>
+          </div>
+
+          <h4 class="font-bold text-gray-900 mb-3">What are they?</h4>
+          <div class="space-y-3 mb-6">
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <p class="font-semibold text-gray-900 mb-1">HMO (Health Maintenance Organization)</p>
+              <p class="text-sm text-gray-600">Medical insurance plan with restricted provider network</p>
+            </div>
+            <div class="bg-gray-50 p-3 rounded-lg">
+              <p class="font-semibold text-gray-900 mb-1">DHMO (Dental Health Maintenance Organization)</p>
+              <p class="text-sm text-gray-600">Dental-specific HMO plan with assigned dentists</p>
+            </div>
+          </div>
+
+          <h4 class="font-bold text-gray-900 mb-3">Key Characteristics:</h4>
+          <ul class="space-y-2 mb-6 ml-4">
+            <li class="flex items-start">
+              <span class="text-orange-500 mr-2">•</span>
+              <span class="text-sm text-gray-700">Require using specific in-network providers only</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-500 mr-2">•</span>
+              <span class="text-sm text-gray-700">Need referrals from primary dentist for specialists</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-500 mr-2">•</span>
+              <span class="text-sm text-gray-700">No out-of-network coverage (or very limited)</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-orange-500 mr-2">•</span>
+              <span class="text-sm text-gray-700">Lower premiums but less flexibility</span>
+            </li>
+          </ul>
+
+          <h5 class="font-semibold text-gray-900 mb-3">Discounted Services:</h5>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>Tooth extractions</strong> - Special pricing available</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>Diagnostics and consultation</strong> - Reduced rates</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>3D scan (CBCT)</strong> - Discounted imaging</span>
+            </li>
+          </ul>
+
+          <div class="bg-gray-50 p-3 rounded-lg mb-4">
+            <p class="text-sm text-gray-600">
+              <strong>Note:</strong> No proof of insurance coverage required
+            </p>
+          </div>
+
+          <h5 class="font-semibold text-gray-900 mb-3">Payment for Implants:</h5>
+          <ul class="space-y-2 mb-4">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span class="text-sm text-gray-700"><strong>Implants:</strong> Self-pay required</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span class="text-sm text-gray-700"><strong>Alternative payment options:</strong> $0 down financing, cash discounts</span>
+            </li>
+          </ul>
+
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-700">
+              <strong>Good news:</strong> Our flexible payment plans often cost less per month than HMO premiums - and you get world-class care from Dr. Antipov!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Medicare/Medicaid -->
+      <div class="insurance-card bg-white rounded-2xl p-8 hover:shadow-xl transition-all duration-300 cursor-pointer border-2 border-green-200" data-card="medicare">
+        <div class="flex justify-between items-start mb-4">
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center">
+            <svg class="w-7 h-7 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+            </svg>
+          </div>
+          <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-2">Medicare/Medicaid</h3>
+        <p class="text-gray-600 mb-4">Government-provided health insurance coverage</p>
+        <p class="text-sm text-blue-500 font-semibold">Tap to learn more</p>
+
+        <div class="card-expanded" style="display: none;">
+          <hr class="my-6 border-gray-200" />
+
+          <div class="bg-orange-50 p-4 rounded-lg mb-6 border-l-4 border-orange-500">
+            <p class="text-orange-700 font-bold">Coverage Limitation:</p>
+            <p class="text-sm text-orange-600 mt-1">
+              Dental implants are NOT covered by Medicare/Medicaid at any dental clinic - this is a standard policy limitation of these insurance programs.
+            </p>
+          </div>
+
+          <div class="bg-green-50 p-4 rounded-lg mb-6 border-l-4 border-green-500">
+            <p class="text-green-700 font-bold mb-2">🎁 Our Special Discount Program:</p>
+            <p class="text-green-600 text-sm">
+              Even though these insurances don't cover implants, we offer special discounts on related services for patients getting implants at our clinic
+            </p>
+          </div>
+
+          <h5 class="font-semibold text-gray-900 mb-3">Discounted Services:</h5>
+          <ul class="space-y-2 mb-6">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>Tooth extractions</strong> - Special pricing available</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>Diagnostics and consultation</strong> - Reduced rates</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 text-green-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+              <span class="text-sm text-gray-700"><strong>3D scan (CBCT)</strong> - Discounted imaging</span>
+            </li>
+          </ul>
+
+          <div class="bg-gray-50 p-3 rounded-lg mb-4">
+            <p class="text-sm text-gray-600">
+              <strong>Note:</strong> No proof of insurance coverage required
+            </p>
+          </div>
+
+          <h5 class="font-semibold text-gray-900 mb-3">Payment for Implants:</h5>
+          <ul class="space-y-2 mb-4">
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span class="text-sm text-gray-700"><strong>Implants:</strong> Self-pay required</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-500 mr-2">•</span>
+              <span class="text-sm text-gray-700"><strong>Additional payment options:</strong> Financing, cash discounts</span>
+            </li>
+          </ul>
+
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <p class="text-sm text-gray-700">
+              <strong>We're here to help:</strong> Our team will work with you to create an affordable payment plan that fits your budget!
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .insurance-card.active {
+    background: #f0f9ff;
+    border: 2px solid #3b82f6;
+  }
+
+  .insurance-card.active .expand-arrow {
+    transform: rotate(180deg);
+  }
+
+  .card-expanded {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.insurance-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const expandedContent = card.querySelector('.card-expanded');
+        const isActive = card.classList.contains('active');
+
+        // Close all other cards
+        cards.forEach(otherCard => {
+          const otherExpanded = otherCard.querySelector('.card-expanded');
+          if (otherExpanded && otherCard !== card) {
+            otherExpanded.style.display = 'none';
+            otherCard.classList.remove('active');
+          }
+        });
+
+        // Toggle current card
+        if (isActive) {
+          expandedContent.style.display = 'none';
+          card.classList.remove('active');
+        } else {
+          expandedContent.style.display = 'block';
+          card.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

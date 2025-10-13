@@ -1,53 +1,270 @@
 ---
-// Additional Benefits section
+// Doctor section with video and expandable cards
 ---
 
-<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50" id="doctor">
   <div class="max-w-7xl mx-auto">
-    <div class="bg-white rounded-3xl p-12 shadow-lg">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h3 class="text-3xl font-bold text-gray-900 mb-6">
-            Everything You Need in One Place
-          </h3>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            Stop juggling multiple tools. Our all-in-one solution provides everything you need to succeed, from start to finish.
-          </p>
-          <ul class="space-y-4">
-            <li class="flex items-start">
-              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span class="text-gray-700">Easy integration with your existing tools</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span class="text-gray-700">Automated workflows to save time</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span class="text-gray-700">Regular updates with new features</span>
-            </li>
-            <li class="flex items-start">
-              <svg class="w-6 h-6 text-blue-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span class="text-gray-700">Dedicated support team ready to help</span>
-            </li>
-          </ul>
-        </div>
-        <div class="relative">
-          <div class="aspect-square bg-gradient-to-br from-blue-100 to-blue-200 rounded-2xl flex items-center justify-center">
-            <svg class="w-32 h-32 text-blue-500/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+    <!-- Section Header -->
+    <div class="text-center mb-12">
+      <h2 class="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+        Meet Dr. Alex Antipov
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Implant Specialist & Educator
+      </p>
+    </div>
+
+    <!-- Video + Cards Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+
+      <!-- Video Section -->
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl bg-gray-900 h-[500px]">
+        <iframe
+          src="https://www.youtube.com/embed/y-mAGcATgKg"
+          width="100%"
+          height="100%"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="absolute inset-0 w-full h-full">
+        </iframe>
+      </div>
+
+      <!-- Expandable Cards -->
+      <div class="space-y-4">
+
+        <!-- Card 1: Experience -->
+        <div class="doctor-card bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer" data-card="1">
+          <div class="flex justify-between items-start">
+            <div class="flex items-start gap-4 flex-1">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                </svg>
+              </div>
+              <div class="card-header">
+                <h3 class="text-lg font-bold text-gray-900">16+ Years Experience in California</h3>
+                <p class="text-sm text-gray-600 mt-1">Tap for details</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
+
+          <div class="card-expanded" style="display: none;">
+            <hr class="my-4 border-gray-200" />
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Dr. Antipov has been practicing advanced implant dentistry in California for over 16 years, specializing in complex full-arch restorations and immediate load protocols.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Board-certified specialist in implantology</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Continuously updated with latest techniques</span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- Card 2: Lab -->
+        <div class="doctor-card bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer" data-card="2">
+          <div class="flex justify-between items-start">
+            <div class="flex items-start gap-4 flex-1">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>
+              </div>
+              <div class="card-header">
+                <h3 class="text-lg font-bold text-gray-900">On-Site Lab – 365 Dental Lab</h3>
+                <p class="text-sm text-gray-600 mt-1">Tap for details</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+
+          <div class="card-expanded" style="display: none;">
+            <hr class="my-4 border-gray-200" />
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Our state-of-the-art on-site laboratory allows us to create and adjust your prosthetics the same day, ensuring perfect fit and aesthetics.
+            </p>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Same-day adjustments and modifications</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Premium materials and craftsmanship</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">No delays - walk out with your smile today</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3: Cases -->
+        <div class="doctor-card bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer" data-card="3">
+          <div class="flex justify-between items-start">
+            <div class="flex items-start gap-4 flex-1">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                </svg>
+              </div>
+              <div class="card-header">
+                <h3 class="text-lg font-bold text-gray-900">3000+ Full-Arch Restorations</h3>
+                <p class="text-sm text-gray-600 mt-1">Tap for details</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+
+          <div class="card-expanded" style="display: none;">
+            <hr class="my-4 border-gray-200" />
+            <p class="text-gray-700 leading-relaxed mb-4">
+              Dr. Antipov is one of California's most experienced dental implant surgeons, with over 15 years of full-arch experience and more than 3000 cases completed.
+            </p>
+            <div class="bg-blue-50 p-4 rounded-lg mb-4">
+              <p class="text-gray-700 font-semibold">Founder of Fusion Dental Academy</p>
+              <p class="text-sm text-gray-600 mt-1">Training doctors in advanced implantology techniques</p>
+            </div>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Specialist in complex full-arch cases</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">98% success rate on all procedures</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 4: Implants -->
+        <div class="doctor-card bg-white rounded-xl p-6 hover:shadow-lg transition-all duration-300 cursor-pointer" data-card="4">
+          <div class="flex justify-between items-start">
+            <div class="flex items-start gap-4 flex-1">
+              <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                </svg>
+              </div>
+              <div class="card-header">
+                <h3 class="text-lg font-bold text-gray-900">Over 45,000 Implants Placed</h3>
+                <p class="text-sm text-gray-600 mt-1">Tap for details</p>
+              </div>
+            </div>
+            <svg class="w-6 h-6 text-blue-500 expand-arrow transition-transform duration-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+
+          <div class="card-expanded" style="display: none;">
+            <hr class="my-4 border-gray-200" />
+            <p class="text-gray-700 leading-relaxed mb-4">
+              With over 45,000 dental implants successfully placed, Dr. Antipov brings unmatched expertise to every procedure.
+            </p>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+              <div class="bg-blue-50 p-3 rounded-lg text-center">
+                <div class="text-2xl font-bold text-blue-500">45,000+</div>
+                <div class="text-xs text-gray-600">Implants</div>
+              </div>
+              <div class="bg-blue-50 p-3 rounded-lg text-center">
+                <div class="text-2xl font-bold text-blue-500">3,000+</div>
+                <div class="text-xs text-gray-600">Full-Arch</div>
+              </div>
+            </div>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Single implants to full-mouth restorations</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                <span class="text-sm text-gray-700">Expert in immediate load protocols</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .doctor-card.active {
+    background: #f0f9ff;
+    border: 2px solid #3b82f6;
+  }
+
+  .doctor-card.active .expand-arrow {
+    transform: rotate(180deg);
+  }
+
+  .card-expanded {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.doctor-card');
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const expandedContent = card.querySelector('.card-expanded');
+        const isActive = card.classList.contains('active');
+
+        // Close all other cards
+        cards.forEach(otherCard => {
+          const otherExpanded = otherCard.querySelector('.card-expanded');
+          if (otherExpanded && otherCard !== card) {
+            otherExpanded.style.display = 'none';
+            otherCard.classList.remove('active');
+          }
+        });
+
+        // Toggle current card
+        if (isActive) {
+          expandedContent.style.display = 'none';
+          card.classList.remove('active');
+        } else {
+          expandedContent.style.display = 'block';
+          card.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

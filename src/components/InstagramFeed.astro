@@ -54,17 +54,17 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <!-- Instagram Reel 7 -->
       <div class="instagram-video-wrapper" data-row="3">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPO94lcjFlK/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPCGPF3FW-b/" data-instgrm-version="14"></blockquote>
       </div>
 
       <!-- Instagram Reel 8 -->
       <div class="instagram-video-wrapper" data-row="3">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPotzeEDLnZ/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPEqqy9iTdc/" data-instgrm-version="14"></blockquote>
       </div>
 
       <!-- Instagram Reel 9 -->
       <div class="instagram-video-wrapper" data-row="3">
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPg_avfle4B/" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DPpMzoPEh0F/" data-instgrm-version="14"></blockquote>
       </div>
 
     </div>
@@ -87,6 +87,21 @@
     min-width: 0 !important;
   }
 
+  /* Скрыть шапку Instagram с аватаром и именем */
+  .instagram-media > div > a > div:first-child {
+    display: none !important;
+  }
+
+  /* Скрыть текст под видео */
+  .instagram-media p {
+    display: none !important;
+  }
+
+  /* Скрыть кнопку "View on Instagram" */
+  .instagram-media > div > a:last-child {
+    display: none !important;
+  }
+
   @media (max-width: 768px) {
     .instagram-video-wrapper {
       height: 400px;
@@ -97,65 +112,50 @@
 <script async src="//www.instagram.com/embed.js"></script>
 
 <script>
-  // Обрезаем Instagram embed как только iframe появляется
-  document.addEventListener('DOMContentLoaded', () => {
+  function forceStyles() {
     const wrappers = document.querySelectorAll('.instagram-video-wrapper');
 
     wrappers.forEach(wrapper => {
-      const observer = new MutationObserver(() => {
-        const iframe = wrapper.querySelector('iframe');
-        const blockquote = wrapper.querySelector('.instagram-media');
+      const iframe = wrapper.querySelector('iframe');
+      const blockquote = wrapper.querySelector('.instagram-media');
+      const row = wrapper.dataset.row;
 
-        // Получаем номер ряда из data-атрибута
-        const row = wrapper.dataset.row;
+      if (iframe) {
+        iframe.style.position = 'relative';
+        iframe.style.top = '-30px';
+        iframe.style.height = '650px';
+        iframe.style.width = '100%';
+        iframe.style.border = 'none';
 
-        // Настройки для первого ряда (уже настроены)
-        let topOffset = '-30px';
-        let leftOffset = '50%';
-        let transformX = '-50%';
-
-        // Для второго ряда сдвигаем вправо на 205px
-        if (row === '2') {
-          topOffset = '-30px';
-          leftOffset = 'calc(50% + 205px)';
-          transformX = 'calc(-50% + 205px)';
+        if (row === '1') {
+          iframe.style.left = '50%';
+          iframe.style.marginLeft = '0px';
+          iframe.style.transform = 'translateX(-50%) scale(1.42)';
+        } else {
+          iframe.style.left = '50%';
+          iframe.style.marginLeft = '150px';
+          iframe.style.transform = 'translateX(-50%) scale(1.42)';
         }
+      }
 
-        // Для третьего ряда сдвигаем вправо на 205px (как второй ряд)
-        if (row === '3') {
-          topOffset = '-30px';
-          leftOffset = 'calc(50% + 205px)';
-          transformX = 'calc(-50% + 205px)';
-        }
-
-        if (iframe) {
-          iframe.style.position = 'relative';
-          iframe.style.top = topOffset;
-          iframe.style.left = leftOffset;
-          iframe.style.transform = `translateX(${transformX}) scale(1.42)`;
-          iframe.style.height = '650px';
-          iframe.style.width = '100%';
-          iframe.style.border = 'none';
-
-          // Останавливаем наблюдение после применения стилей
-          observer.disconnect();
-        }
-
-        if (blockquote) {
-          blockquote.style.position = 'relative';
-          blockquote.style.top = topOffset;
-          blockquote.style.width = '100%';
-          blockquote.style.border = 'none';
-          blockquote.style.boxShadow = 'none';
-          blockquote.style.margin = '0';
-        }
-      });
-
-      // Наблюдаем за изменениями в wrapper
-      observer.observe(wrapper, {
-        childList: true,
-        subtree: true
-      });
+      if (blockquote) {
+        blockquote.style.position = 'relative';
+        blockquote.style.top = '-30px';
+        blockquote.style.width = '100%';
+        blockquote.style.border = 'none';
+        blockquote.style.boxShadow = 'none';
+        blockquote.style.margin = '0';
+      }
     });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Применяем стили постоянно каждые 2 секунды
+    setInterval(forceStyles, 2000);
+
+    // И сразу при загрузке
+    setTimeout(forceStyles, 500);
+    setTimeout(forceStyles, 1500);
+    setTimeout(forceStyles, 3000);
   });
 </script>
