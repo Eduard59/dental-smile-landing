@@ -1,0 +1,189 @@
+---
+// Clinic photo carousel with overlay text
+---
+
+<section class="py-20 px-4 sm:px-6 lg:px-8 bg-white" id="clinic">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Carousel Container -->
+    <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+
+      <!-- Carousel Track -->
+      <div class="clinic-carousel relative h-[700px]">
+
+        <!-- Slide 1 -->
+        <div class="carousel-slide active">
+          <img
+            src="/images/clinic/Group_134_1.png.webp"
+            alt="Dental Implants Clinic - Interior View 1"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-slide">
+          <img
+            src="/images/clinic/Group_134_2.png.webp"
+            alt="Dental Implants Clinic - Interior View 2"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-slide">
+          <img
+            src="/images/clinic/Group_134_3.png.webp"
+            alt="Dental Implants Clinic - Interior View 3"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Overlay Text - Top Left -->
+        <div class="absolute top-8 left-8 z-10">
+          <div class="text-left text-white">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 drop-shadow-2xl">
+              Our Boutique Implant Center
+            </h2>
+            <p class="text-xl sm:text-2xl lg:text-3xl drop-shadow-2xl">
+              in Roseville, CA
+            </p>
+          </div>
+        </div>
+
+        <!-- Navigation Arrows -->
+        <button class="carousel-prev-btn absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition z-20">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <button class="carousel-next-btn absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white rounded-full p-3 shadow-lg transition z-20">
+          <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
+        <!-- Amenities Bar - Overlay Bottom -->
+        <div class="absolute bottom-0 left-0 right-0 py-8 px-12 z-10">
+          <div class="flex justify-between items-center max-w-6xl mx-auto">
+
+            <!-- Amenity 1: Private Suites -->
+            <div class="flex flex-col items-center text-center">
+              <img src="/images/amenities/Modern_privat.webp" alt="Private Suites" class="w-14 h-14 mb-3 drop-shadow-lg" />
+              <p class="text-sm text-white font-semibold drop-shadow-lg max-w-[120px]">Modern private treatment suites</p>
+            </div>
+
+            <!-- Amenity 2: Free Amenities -->
+            <div class="flex flex-col items-center text-center">
+              <img src="/images/amenities/wifi.png.webp" alt="Wi-Fi & Amenities" class="w-14 h-14 mb-3 drop-shadow-lg" />
+              <p class="text-sm text-white font-semibold drop-shadow-lg max-w-[120px]">Free Wi-Fi, coffee, and snacks</p>
+            </div>
+
+            <!-- Amenity 3: Easy Parking -->
+            <div class="flex flex-col items-center text-center">
+              <img src="/images/amenities/parking.webp" alt="Parking" class="w-14 h-14 mb-3 drop-shadow-lg" />
+              <p class="text-sm text-white font-semibold drop-shadow-lg max-w-[120px]">Easy parking</p>
+            </div>
+
+            <!-- Amenity 4: Compassionate Staff -->
+            <div class="flex flex-col items-center text-center">
+              <img src="/images/amenities/Map.webp" alt="Staff" class="w-14 h-14 mb-3 drop-shadow-lg" />
+              <p class="text-sm text-white font-semibold drop-shadow-lg max-w-[120px]">Compassionate, friendly staff</p>
+            </div>
+
+            <!-- Amenity 5: On-site Lab -->
+            <div class="flex flex-col items-center text-center">
+              <img src="/images/amenities/On-site lab.webp" alt="Lab" class="w-14 h-14 mb-3 drop-shadow-lg" />
+              <p class="text-sm text-white font-semibold drop-shadow-lg max-w-[120px]">On-site lab for faster delivery</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinic-carousel {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .carousel-slide.active {
+    opacity: 1;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .clinic-carousel {
+      height: 500px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const prevBtn = document.querySelector('.carousel-prev-btn');
+    const nextBtn = document.querySelector('.carousel-next-btn');
+
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        if (i === index) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('bg-white/50');
+          dot.classList.add('bg-white');
+        } else {
+          dot.classList.remove('bg-white');
+          dot.classList.add('bg-white/50');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    prevBtn?.addEventListener('click', prevSlide);
+    nextBtn?.addEventListener('click', nextSlide);
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+      });
+    });
+
+    // Auto-advance every 5 seconds
+    setInterval(nextSlide, 5000);
+  });
+</script>
