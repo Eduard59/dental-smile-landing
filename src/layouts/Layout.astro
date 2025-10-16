@@ -4,9 +4,16 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  image?: string;
 }
 
-const { title, description = "Modern, clean landing page built with Astro 4 and Tailwind CSS" } = Astro.props;
+const {
+  title = "Dental Implants Club - Full-Arch Dental Implants in California | Dr. Antipov",
+  description = "Transform your smile in just ONE day! Dr. Antipov - 3000+ full-arch cases, 16+ years experience. $0 down financing, same-day implants. Roseville & El Dorado Hills, CA.",
+  image = "/images/hero/Gemini_Generated_Image_2syrh42syrh42syr.png"
+} = Astro.props;
+
+const siteUrl = "https://dental-smile-landing.onrender.com";
 ---
 
 <!doctype html>
@@ -14,20 +21,82 @@ const { title, description = "Modern, clean landing page built with Astro 4 and 
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Open Graph / Social Media -->
+    <!-- SEO Meta Tags -->
+    <meta name="keywords" content="dental implants, full-arch restoration, All-on-4, All-on-6, teeth in a day, Dr. Antipov, Roseville dentist, El Dorado Hills, California, same-day implants, $0 down financing" />
+    <meta name="author" content="Dental Implants Club" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${image}`} />
+    <meta property="og:site_name" content="Dental Implants Club" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={siteUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${siteUrl}${image}`} />
+
+    <!-- Business Info -->
+    <meta name="geo.region" content="US-CA" />
+    <meta name="geo.placename" content="Roseville, El Dorado Hills" />
+    <meta name="geo.position" content="38.7521;-121.2880" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Dentist",
+      "name": "Dental Implants Club",
+      "description": "Full-arch dental implant specialists serving Roseville and El Dorado Hills, California",
+      "url": siteUrl,
+      "telephone": "+1-916-282-2423",
+      "email": "info@dentalimplantsclub.com",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "911 Reserve Dr Ste 150",
+          "addressLocality": "Roseville",
+          "addressRegion": "CA",
+          "addressCountry": "US"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "4913 Golden Foothill Pkwy",
+          "addressLocality": "El Dorado Hills",
+          "addressRegion": "CA",
+          "postalCode": "95762",
+          "addressCountry": "US"
+        }
+      ],
+      "priceRange": "$$",
+      "paymentAccepted": "Cash, Credit Card, Financing",
+      "openingHours": ["Mo-Fr 08:00-18:00", "Sa 09:00-15:00"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "50"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Dr. Alex Antipov",
+        "jobTitle": "Implant Specialist"
+      }
+    })} />
   </head>
   <body class="font-inter antialiased bg-white text-gray-900">
     <slot />

@@ -1,0 +1,10 @@
+# Dental Implants Club - Robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://dental-smile-landing.onrender.com/sitemap.xml
+
+# Crawl Delay
+Crawl-delay: 1
