@@ -59,10 +59,19 @@
     transform: scale(0.98);
   }
 
-  /* Hide on desktop */
+  /* Hide initially on desktop, show when scrolled */
   @media (min-width: 768px) {
     .mobile-cta-buttons {
       display: none;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-cta-buttons.visible {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 
@@ -73,3 +82,22 @@
     }
   }
 </style>
+
+<script>
+  // Show sticky buttons when scrolled past Cost section
+  window.addEventListener('scroll', () => {
+    const costSection = document.getElementById('cost');
+    const buttons = document.querySelector('.mobile-cta-buttons');
+
+    if (costSection && buttons) {
+      const costBottom = costSection.offsetTop + costSection.offsetHeight;
+      const scrollPosition = window.scrollY + window.innerHeight;
+
+      if (scrollPosition > costBottom) {
+        buttons.classList.add('visible');
+      } else {
+        buttons.classList.remove('visible');
+      }
+    }
+  });
+</script>
