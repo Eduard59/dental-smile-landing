@@ -1,0 +1,182 @@
+{
+  "business": {
+    "name": "Dental Implants Club",
+    "type": "Dental Implant Clinic",
+    "locations": [
+      {
+        "city": "Roseville",
+        "state": "CA",
+        "address": "911 Reserve Dr Ste 150",
+        "phone": "+1-916-282-2423"
+      },
+      {
+        "city": "El Dorado Hills",
+        "state": "CA",
+        "address": "4913 Golden Foothill Pkwy",
+        "zipCode": "95762",
+        "phone": "+1-916-282-2423"
+      }
+    ],
+    "email": "info@dentalimplantsclub.com",
+    "website": "https://dental-smile-landing.onrender.com"
+  },
+  "doctor": {
+    "name": "Dr. Alex Antipov",
+    "specialty": "Implant Specialist & Educator",
+    "experience": "16+ years in California",
+    "credentials": [
+      "3000+ Full-Arch Cases Completed",
+      "45,000+ Implants Placed",
+      "Founder of Fusion Dental Academy"
+    ]
+  },
+  "services": [
+    {
+      "name": "Single Dental Implant",
+      "type": "Individual tooth replacement",
+      "pricing": {
+        "type": "Variable - depends on case complexity",
+        "quote": "Free personalized quote available",
+        "calculator": "https://widget.dentalprice.ai/amazcloverr/widget?package=single-implant"
+      },
+      "includes": [
+        "Complete consultation",
+        "3D CT scan",
+        "Implant placement",
+        "Crown"
+      ],
+      "insurance": "Partially covered by most PPO plans (typically $1,000-$2,000)",
+      "financing": "$0 down available, 48-90 month terms"
+    },
+    {
+      "name": "All-on-4/6/8 Full-Arch Restoration",
+      "type": "Complete mouth restoration",
+      "pricing": {
+        "type": "Variable - depends on number of implants and materials",
+        "quote": "Free personalized quote available",
+        "calculator": "https://widget.dentalprice.ai/amazcloverr/widget?package=all-on-468-per-arch"
+      },
+      "timeframe": "Same day - walk out with new smile",
+      "includes": [
+        "4, 6, or 8 implants per arch",
+        "Temporary teeth same day",
+        "Final zirconia restoration after healing",
+        "All extractions if needed"
+      ],
+      "insurance": "PPO plans may cover $1,000-$2,000",
+      "financing": "$0 down, 60-month plan example: $25,000 = $417/month"
+    },
+    {
+      "name": "Snap-in Removable Denture",
+      "type": "Implant-supported removable denture",
+      "pricing": {
+        "type": "Variable",
+        "quote": "Free personalized quote available",
+        "calculator": "https://widget.dentalprice.ai/amazcloverr/widget?package=snap-in-denture"
+      },
+      "includes": [
+        "2-4 implants",
+        "Custom denture",
+        "Snap attachments"
+      ]
+    },
+    {
+      "name": "Permanent Zirconia Teeth",
+      "type": "Fixed full-arch zirconia restoration",
+      "pricing": {
+        "type": "Variable - premium materials",
+        "quote": "Free personalized quote available",
+        "calculator": "https://widget.dentalprice.ai/amazcloverr/widget?package=zirconia-teeth"
+      },
+      "materials": "Premium zirconia - strongest, most natural-looking",
+      "durability": "Lifetime restoration"
+    }
+  ],
+  "financing": {
+    "downPayment": "$0 available",
+    "approvalRate": "85%+",
+    "creditScore": "600+ accepted",
+    "terms": ["48 months", "60 months (most popular)", "90 months"],
+    "example": "$25,000 procedure = $417/month (60 months)",
+    "lenders": ["CareCredit", "Cherry", "Proceed Finance"],
+    "features": [
+      "Instant 60-second decision",
+      "No impact on credit score (soft pull)",
+      "No prepayment penalties",
+      "0% APR options for 12-24 months"
+    ]
+  },
+  "insurance": {
+    "accepted": ["PPO plans"],
+    "notAccepted": ["HMO", "DHMO"],
+    "medicare": "Implants not covered, but discounts on extractions/diagnostics available",
+    "coverage": "Typically $1,000-$2,000 per year maximum"
+  },
+  "consultation": {
+    "cost": "FREE (value $650)",
+    "includes": [
+      "1-on-1 exam with Dr. Antipov",
+      "3D CT scan",
+      "Personalized full-arch treatment plan",
+      "Transparent all-inclusive quote"
+    ],
+    "noCommitment": true
+  },
+  "keyFeatures": [
+    "Same-day implants with temporary teeth",
+    "On-site lab (365 Dental Lab) for immediate adjustments",
+    "3000+ full-arch cases completed",
+    "98% success rate",
+    "Modern private treatment suites",
+    "Free Wi-Fi, coffee, snacks",
+    "Easy parking",
+    "Sedation options available"
+  ],
+  "faq": [
+    {
+      "question": "How much does a single implant cost?",
+      "answer": "Pricing varies based on case complexity. We provide personalized quotes after free consultation. Use our calculator for instant estimate with promo code."
+    },
+    {
+      "question": "What is the cost of full mouth restoration?",
+      "answer": "Full-arch (All-on-4/6/8) pricing depends on number of implants, materials (acrylic vs zirconia), and additional procedures needed. Calculator provides personalized quote."
+    },
+    {
+      "question": "Do you offer payment plans?",
+      "answer": "Yes - $0 down, 48-90 month terms, 85%+ approval rate, 600+ credit score accepted, instant decision in 60 seconds."
+    },
+    {
+      "question": "Does insurance cover dental implants?",
+      "answer": "Most PPO plans provide partial coverage ($1,000-$2,000). HMO/DHMO not accepted. Medicare/Medicaid don't cover implants but we offer discounts on related services."
+    },
+    {
+      "question": "How much is the consultation?",
+      "answer": "FREE (saves $650). Includes: 1-on-1 exam with Dr. Antipov, 3D CT scan, personalized treatment plan, transparent quote. No commitment required."
+    },
+    {
+      "question": "Do you offer same-day implants?",
+      "answer": "Yes! Walk out with temporary teeth the same day implants are placed. On-site lab allows immediate adjustments."
+    },
+    {
+      "question": "Can you do both upper and lower at the same time?",
+      "answer": "Absolutely. Dr. Antipov has extensive experience with full-mouth restorations in single surgery."
+    }
+  ],
+  "hours": {
+    "monday": "8:00 AM - 6:00 PM",
+    "tuesday": "8:00 AM - 6:00 PM",
+    "wednesday": "8:00 AM - 6:00 PM",
+    "thursday": "8:00 AM - 6:00 PM",
+    "friday": "8:00 AM - 6:00 PM",
+    "saturday": "9:00 AM - 3:00 PM",
+    "sunday": "Closed"
+  },
+  "specialOffers": [
+    "Free consultation (save $650)",
+    "$0 down financing available",
+    "Same-day treatment",
+    "Special discounts for Medicare/Medicaid patients on extractions and diagnostics"
+  ],
+  "aiSearchOptimized": true,
+  "lastUpdated": "2025-10-13"
+}
