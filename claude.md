@@ -1079,6 +1079,16 @@ npm update
 
 ## Version History
 
+### v2.1 (2025-10-13) - SEO & AI Optimization
+- **SEO**: Full meta tags (Open Graph, Twitter Cards, keywords, geo tags)
+- **Structured Data**: JSON-LD for Google Business integration
+- **AI Search**: `/ai-search-optimized.json` for ChatGPT/Perplexity/Claude
+- **robots.txt**: Created for search engine crawling
+- **Sticky Buttons**: Now work on desktop when scrolled past Cost section
+- **Clinic Carousel**: New component with 3 photos + amenities overlay
+- **Color Consistency**: Orange (#E07B47) for Free Consultation across all CTAs
+- **Client Documentation**: CLIENT_GUIDE.md created
+
 ### v2.0 (2025-10-13)
 - **New Components**: FAQ, Insurance, Doctor section with video
 - **Updated Components**: Testimonials (5 real reviews with read more/less), CTA (expandable card), InstagramFeed (3 rows, stable positioning)
@@ -1087,7 +1097,7 @@ npm update
 - **Navigation**: Added Insurance to menu, updated all anchor links
 - **Footer**: Logo, Get Directions buttons, social media links
 - **Mobile**: Improved burger menu with white background
-- **Total**: 15 components + 1 config file
+- **Total**: 16 components + 1 config file
 
 ### v1.0 (2025-10-11)
 - Initial documentation
